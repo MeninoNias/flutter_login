@@ -18,8 +18,8 @@ class CustomInterceptops extends InterceptorsWrapper {
       return super.onRequest(options);
     } else {
       _dio.lock();
-      LoginRepository().login() as UserModel;
-      token = preferences.get('token');
+      // LoginRepository().login() as UserModel;
+      // token = preferences.get('token');
       _dio.unlock();
     }
 

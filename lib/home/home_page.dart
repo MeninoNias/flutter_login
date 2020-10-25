@@ -35,11 +35,9 @@ class _HomePageState extends State<HomePage> {
                   "Entrar",
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
-                onPressed: () {
-                  controller.login();
-                },
+                onPressed: () {},
               ),
-            )
+            ),
           ],
         ),
       ),
