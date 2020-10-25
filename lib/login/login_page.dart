@@ -80,14 +80,12 @@ class _LoginPageState extends State<LoginPage> {
                             _controllerPass.text,
                           );
                           temp
-                              ? Navigator.push(
-                                  context,
+                              ? Navigator.pushAndRemoveUntil(context,
                                   MaterialPageRoute(
-                                    builder: (context) {
-                                      return HomePage();
-                                    },
-                                  ),
-                                )
+                                  builder: (context) {
+                                    return HomePage();
+                                  },
+                                ), (Route<dynamic> route) => false)
                               : setLogando(false);
                         },
                 ),

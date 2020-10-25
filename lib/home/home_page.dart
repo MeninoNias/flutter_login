@@ -18,10 +18,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("HOME"),
-        centerTitle: true,
-      ),
       body: Padding(padding: EdgeInsets.all(20)),
     );
   }
