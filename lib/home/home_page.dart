@@ -22,25 +22,7 @@ class _HomePageState extends State<HomePage> {
         title: Text("HOME"),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ButtonTheme(
-              height: 50,
-              child: RaisedButton(
-                child: Text(
-                  "Entrar",
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-                onPressed: () {},
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: Padding(padding: EdgeInsets.all(20)),
     );
   }
 }

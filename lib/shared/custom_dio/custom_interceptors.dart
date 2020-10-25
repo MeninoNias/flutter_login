@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:login_flutter/login/login_repository.dart';
-import 'package:login_flutter/shared/model/user_model.dart';
+// import 'package:login_flutter/login/login_repository.dart';
+// import 'package:login_flutter/shared/model/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomInterceptops extends InterceptorsWrapper {
@@ -18,6 +18,8 @@ class CustomInterceptops extends InterceptorsWrapper {
       return super.onRequest(options);
     } else {
       _dio.lock();
+      // Fazer a autenticação com sqlLite
+
       // LoginRepository().login() as UserModel;
       // token = preferences.get('token');
       _dio.unlock();
