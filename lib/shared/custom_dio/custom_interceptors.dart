@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomInterceptops extends InterceptorsWrapper {
-  final Dio _dio;
+  Dio _dio;
 
   CustomInterceptops(this._dio);
 
@@ -12,25 +12,28 @@ class CustomInterceptops extends InterceptorsWrapper {
   Future onRequest(RequestOptions options) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
 
-    var token = preferences.get("token");
-    if (token = !null) {
-      options.headers["Authorization"] = token;
-      return super.onRequest(options);
-    } else {
+    var token = preferences.getString("token");
+    if (token != null) {
       _dio.lock();
-      // Fazer a autenticação com sqlLite
-
-      // LoginRepository().login() as UserModel;
-      // token = preferences.get('token');
+      options.headers['Authorization'] = 'JWT ${token}';
+      print(options.headers["Authorization"]);
       _dio.unlock();
     }
+    // else {
+    //   _dio.lock();
+    //   // Fazer a autenticação com sqlLite
 
-    return super.onRequest(options);
+    //   // LoginRepository().login() as UserModel;
+    //   // token = preferences.get('token');
+    //   _dio.unlock();
+    // }
+
+    return options;
   }
 
   @override
   Future onResponse(Response response) {
-    // TODO: implement onResponse
+    print("RESPONSE - STATUS CODE: ${response.statusCode}");
     return super.onResponse(response);
   }
 

@@ -7,8 +7,7 @@ class LoginRepository {
 
   Future login(String username, String senha) async {
     try {
-      var response = await _dio.post(
-          'https://e-protocolo.herokuapp.com/api/login/',
+      var response = await _dio.post('http://10.0.3.2:8000/api/login/',
           data: {"username": username, "password": senha});
 
       SharedPreferences preferences = await SharedPreferences.getInstance();
